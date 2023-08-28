@@ -1,0 +1,38 @@
+{
+  "HarmonyId": "JAN.dayeventmessages",
+  "DisplayName": "Day Events Messages",
+  "Authors": [
+    "JAN"
+  ],
+  "Description": "Placeholder description, check back soon!",
+  "Version": "1.0.0",
+  "RequiredMods": [],
+  "Settings": {
+    "TextInputSettings": [
+      {
+        "Name": "Deputy Message",
+        "Description": "The soundpack you are going to listen to.",
+        "DefaultValue": "<color=blue>%deputy% revealed as a %deputyRole% and shot %target%!</color>",
+        "Regex": "[0-9A-Za-z]",
+        "CharacterLimit": 50,
+        "AvailableInGame": false
+      },
+      {
+        "Name": "Prosecutor Message",
+        "Description": "The soundpack you are going to listen to.",
+        "DefaultValue": "<color=blue>%prosecutor% prosecuted %target%!</color>",
+        "Regex": "[0-9A-Za-z]",
+        "CharacterLimit": 50,
+        "AvailableInGame": false
+      },
+      {
+        "Name": "Conjurer Message",
+        "Description": "The soundpack you are going to listen to.",
+        "DefaultValue": "<color=red>%target% didn't watch their tone</color>",
+        "Regex": "[0-9A-Za-z]",
+        "CharacterLimit": 50,
+        "AvailableInGame": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+using Shared.Chat;
+using System.Reflection;
+using Services;
+using Server.Shared.Messages;
+using UnityEngine;
+using Server.Shared.State.Chat;
+using Mentions.UI;
+using Home.Common;
+
+namespace Utils{
+    static public class ChatUtils{
+        static public void AddMessage(string message, string style = "", bool playSound = true, bool stayInChatlogs = true, bool showInChat = true){
+            //Always makes the same pre-message. Styles maintain all message.
+            MentionPanel mp = (MentionPanel)Object.FindObjectOfType(typeof(MentionPanel));
+            ChatLogCustomTextEntry chatLogCustomTextEntry = new ChatLogCustomTextEntry(mp.mentionsProvider.DecodeText(message), style);
+			chatLogCustomTextEntry.showInChatLog = stayInChatlogs;
+			chatLogCustomTextEntry.showInChat = showInChat;
+			ChatLogMessage chatLogMessage = new ChatLogMessage();
+			chatLogMessage.chatLogEntry = chatLogCustomTextEntry;
+			Service.Game.Sim.simulation.incomingChatMessage.ForceSet(chatLogMessage);
+            if(playSound)Object.FindObjectOfType<UIController>().PlaySound("Audio/UI/Error", false);
+            
+        }
+
+        static public void AddFeedbackMsg(string message, bool playSound = true, string feedbackMessageType = "normal"){
+            //Makes cool pre-messages with the types. Doesn't stay on chatlogs.
+            MentionPanel mp = (MentionPanel)Object.FindObjectOfType(typeof(MentionPanel));
+            ChatLogClientFeedbackEntry chatLogCustomLookupEntry = new ChatLogClientFeedbackEntry(TypesToTypesUtils.StringToFeedbackType(feedbackMessageType), mp.mentionsProvider.DecodeText(message));
+			ChatLogMessage chatLogMessage = new ChatLogMessage();
+			chatLogMessage.chatLogEntry = chatLogCustomLookupEntry;
+			Service.Game.Sim.simulation.incomingChatMessage.ForceSet(chatLogMessage);
+            if(playSound)Object.FindObjectOfType<UIController>().PlaySound("Audio/UI/Error", false);
+        }
+        
+    }
+}

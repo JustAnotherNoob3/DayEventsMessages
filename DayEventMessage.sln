@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DayEventMessage", "DayEventMessage.csproj", "{FBEE2AD1-77C6-461A-8092-6ED6C0317696}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBEE2AD1-77C6-461A-8092-6ED6C0317696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEE2AD1-77C6-461A-8092-6ED6C0317696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEE2AD1-77C6-461A-8092-6ED6C0317696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEE2AD1-77C6-461A-8092-6ED6C0317696}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05C45CE1-3370-48AF-A233-1A48022D5122}
+	EndGlobalSection
+EndGlobal
