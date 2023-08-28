@@ -11,7 +11,7 @@
     "TextInputSettings": [
       {
         "Name": "Deputy Message",
-        "Description": "The soundpack you are going to listen to.",
+        "Description": "Message appearing when a deputy shoots someone. Valid variables %deputy% for dep position, %deputyRole% for the deputy mention, and %target% for target position",
         "DefaultValue": "<color=blue>%deputy% revealed as a %deputyRole% and shot %target%!</color>",
         "Regex": "[0-9A-Za-z]",
         "CharacterLimit": 50,
@@ -19,7 +19,7 @@
       },
       {
         "Name": "Prosecutor Message",
-        "Description": "The soundpack you are going to listen to.",
+        "Description": "Message appearing when a prosecutor hangs someone. Valid variables %prosecutor% for pros position, %prosecutorRole% for the prosecutor mention, and %target% for target position",
         "DefaultValue": "<color=blue>%prosecutor% prosecuted %target%!</color>",
         "Regex": "[0-9A-Za-z]",
         "CharacterLimit": 50,
@@ -27,7 +27,7 @@
       },
       {
         "Name": "Conjurer Message",
-        "Description": "The soundpack you are going to listen to.",
+        "Description": "Message appearing when a conjurer drops the meteor. Valid variables %conjurerRole% for the conjurer mention, and %target% for target position",
         "DefaultValue": "<color=red>%target% didn't watch their tone</color>",
         "Regex": "[0-9A-Za-z]",
         "CharacterLimit": 50,
