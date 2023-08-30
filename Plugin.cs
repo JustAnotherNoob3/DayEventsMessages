@@ -36,7 +36,6 @@ namespace Main
             ProsecutionCinematicData prosecutionCinematicData = cinematic as ProsecutionCinematicData;
 			int prosecutorPosition = prosecutionCinematicData.prosecutorPostion;
 			int otherPosition = prosecutionCinematicData.targetPosition;
-            ChatUtils.AddFeedbackMsg("<color=blue>[[@"+(prosecutorPosition + 1)+"]] prosecuted [[@"+(otherPosition + 1)+"]]!</color>",false,"info");
             ChatUtils.AddFeedbackMsg(ModSettings.GetString("Prosecutor Message").Replace("%prosecutor%", "[[@"+(prosecutorPosition + 1) + "]]").Replace("%prosecutorRole%",TypesToTypesUtils.GetMentionEncodedText("#prosecutor")).Replace("%target%", "[[@"+(otherPosition + 1)+"]]"),false,"info");
         }
     }
