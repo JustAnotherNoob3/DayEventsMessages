@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using Mentions;
 using Mentions.UI;
 using UnityEngine;
+using System;
 namespace Utils{
     static public class TypesToTypesUtils{
         static public string GetMentionEncodedText(string humanText){
             if(humanText[0] != '@' && humanText[0] != '#' && humanText[0] != ':'){
-                Debug.LogError("Error: " + humanText + " does not start with a valid character. Always start with #, : or @");
+                Console.WriteLine("Error: " + humanText + " does not start with a valid character. Always start with #, : or @");
                 return "Error: " + humanText + " does not start with a valid character";
             }
             MentionPanel mentionPanel = (MentionPanel)GameObject.FindObjectOfType(typeof(MentionPanel));
@@ -40,7 +41,7 @@ namespace Utils{
                 case "success":
                     return ClientFeedbackType.Success;
                 default:
-                    Debug.LogError("Error: " + str + " is not a valid feedback type, defaulting to normal");
+                    Console.WriteLine("Error: " + str + " is not a valid feedback type, defaulting to normal");
                     return ClientFeedbackType.Normal;
             }
         }    

@@ -4,33 +4,53 @@
   "Authors": [
     "JAN"
   ],
-  "Description": "Placeholder description, check back soon!",
+  "Description": "Adds a message to chat when a day killing occurs",
   "Version": "1.0.0",
   "RequiredMods": [],
   "Settings": {
     "TextInputSettings": [
       {
         "Name": "Deputy Message",
-        "Description": "Message appearing when a deputy shoots someone. Valid variables %deputy% for dep position, %deputyRole% for the deputy mention, and %target% for target position",
-        "DefaultValue": "<color=blue>%deputy% revealed as a %deputyRole% and shot %target%!</color>",
+        "Description": "Message appearing when a deputy shoots someone. Valid variables: %deputy% for dep position, %deputyRole% for the deputy mention, and %target% for target position",
+        "DefaultValue": "%deputy% revealed as a %deputyRole% and shot %target%!",
         "Regex": "[0-9A-Za-z]",
         "CharacterLimit": 50,
         "AvailableInGame": false
       },
       {
         "Name": "Prosecutor Message",
-        "Description": "Message appearing when a prosecutor hangs someone. Valid variables %prosecutor% for pros position, %prosecutorRole% for the prosecutor mention, and %target% for target position",
-        "DefaultValue": "<color=blue>%prosecutor% prosecuted %target%!</color>",
+        "Description": "Message appearing when a prosecutor hangs someone. Valid variables: %prosecutor% for pros position, %prosecutorRole% for the prosecutor mention, and %target% for target position",
+        "DefaultValue": "%prosecutor% prosecuted %target%!",
         "Regex": "[0-9A-Za-z]",
-        "CharacterLimit": 50,
+        "CharacterLimit": 100,
         "AvailableInGame": false
       },
       {
         "Name": "Conjurer Message",
-        "Description": "Message appearing when a conjurer drops the meteor. Valid variables %conjurerRole% for the conjurer mention, and %target% for target position",
-        "DefaultValue": "<color=red>%target% didn't watch their tone</color>",
+        "Description": "Message appearing when a conjurer drops the meteor. Valid variables: %conjurerRole% for the conjurer mention, and %target% for target position",
+        "DefaultValue": "%target% didn't watch their tone!",
         "Regex": "[0-9A-Za-z]",
-        "CharacterLimit": 50,
+        "CharacterLimit": 100,
+        "AvailableInGame": false
+      }
+    ],
+    "ColorPickerSettings": [
+      {
+        "Name": "Deputy Msg Color",
+        "Description": "Color of the deputy message.",
+        "DefaultValue": "#1133FF",
+        "AvailableInGame": true
+      },
+      {
+        "Name": "Prosecutor Msg Color",
+        "Description": "Color of the prosecutor message.",
+        "DefaultValue": "#1133FF",
+        "AvailableInGame": true
+      },
+      {
+        "Name": "Conjurer Msg Color",
+        "Description": "Color of the conjurer message.",
+        "DefaultValue": "#FF0000",
         "AvailableInGame": false
       }
     ]

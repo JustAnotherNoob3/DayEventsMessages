@@ -12,10 +12,12 @@
 
   <ItemGroup>
     <None Remove="modinfo.json" />
+    <None Remove="resources\images\thumbnail.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="modinfo.json" />
+    <EmbeddedResource Include="resources\images\thumbnail.png" />
   </ItemGroup>
 
   <ItemGroup>

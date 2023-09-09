@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9zelSrBR9p8rhnmnCLwMfiWn1nl6ixb1vsZ2WvUJluFUO7Aso+5VWOuANPczxl6/q4xgvShtn7iVdZEFDy2New==",
+  "dgSpecHash": "fWVlX9cOBidf4wWd64Jabz5JVMM6A6xTzKa0gEY6+6rlGXcZ1Tjjs7hM8ATKGxB1fqB7oOZeLtLmaIwJt2wKvw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Eze\\Documents\\GitHub\\DayEventsMessages\\DayEventMessage.csproj",
+  "projectFilePath": "D:\\Apps\\JAN's stuff\\ToS 2\\OldMods\\DayEventMessage\\DayEventMessage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eze\\.nuget\\packages\\harmonyx\\2.10.1\\harmonyx.2.10.1.nupkg.sha512",
     "C:\\Users\\Eze\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

@@ -12,12 +12,13 @@ namespace Utils{
         static public void AddMessage(string message, string style = "", bool playSound = true, bool stayInChatlogs = true, bool showInChat = true){
             //Always makes the same pre-message. Styles maintain all message.
             MentionPanel mp = (MentionPanel)Object.FindObjectOfType(typeof(MentionPanel));
-            ChatLogCustomTextEntry chatLogCustomTextEntry = new ChatLogCustomTextEntry(mp.mentionsProvider.DecodeText(message), style);
-			chatLogCustomTextEntry.showInChatLog = stayInChatlogs;
-			chatLogCustomTextEntry.showInChat = showInChat;
-			ChatLogMessage chatLogMessage = new ChatLogMessage();
-			chatLogMessage.chatLogEntry = chatLogCustomTextEntry;
-			Service.Game.Sim.simulation.incomingChatMessage.ForceSet(chatLogMessage);
+            ChatLogCustomTextEntry chatLogCustomTextEntry = new(mp.mentionsProvider.DecodeText(message), style)
+            {
+                showInChatLog = stayInChatlogs,
+                showInChat = showInChat
+            };
+            ChatLogMessage chatLogMessage = new(chatLogCustomTextEntry);
+            Service.Game.Sim.simulation.HandleChatLog(chatLogMessage);
             if(playSound)Object.FindObjectOfType<UIController>().PlaySound("Audio/UI/Error", false);
             
         }
