@@ -23,7 +23,7 @@ namespace Main
             DeputyKillCinematicData deputyKillCinematicData = cinematic as DeputyKillCinematicData;
 			int deputyPosition = deputyKillCinematicData.deputyPosition;
 			int otherPosition = deputyKillCinematicData.otherPosition;
-            ChatUtils.AddMessage($"<color={ModSettings.GetString("Deputy Msg Color")}>"+ModSettings.GetString("Deputy Message").Replace("%deputy%", "[[@"+(deputyPosition + 1) + "]]").Replace("%deputyRole%",TypesToTypesUtils.GetMentionEncodedText("#deputy")).Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false); //there are multiple styles you can use to paint the text however you want, but i want to give users the freedom to choose their text so im leaving it blank.
+            ChatUtils.AddMessage($"<color={ModSettings.GetString("Deputy Msg Color")}>"+ModSettings.GetString("Deputy Message").Replace("%deputy%", "[[@"+(deputyPosition + 1) + "]]").Replace("%deputyRole%", "[[#7]]").Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false); //there are multiple styles you can use to paint the text however you want, but i want to give users the freedom to choose their text so im leaving it blank.
         }
         
         }
@@ -34,7 +34,7 @@ namespace Main
             ProsecutionCinematicData prosecutionCinematicData = cinematic as ProsecutionCinematicData;
 			int prosecutorPosition = prosecutionCinematicData.prosecutorPostion;
 			int otherPosition = prosecutionCinematicData.targetPosition;
-            ChatUtils.AddMessage($"<color={ModSettings.GetString("Prosecutor Msg Color")}>"+ModSettings.GetString("Prosecutor Message").Replace("%prosecutor%", "[[@"+(prosecutorPosition + 1) + "]]").Replace("%prosecutorRole%",TypesToTypesUtils.GetMentionEncodedText("#prosecutor")).Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
+            ChatUtils.AddMessage($"<color={ModSettings.GetString("Prosecutor Msg Color")}>"+ModSettings.GetString("Prosecutor Message").Replace("%prosecutor%", "[[@"+(prosecutorPosition + 1) + "]]").Replace("%prosecutorRole%","[[#13]]").Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
         }
     }
     [HarmonyPatch(typeof(ConjurerKillCinematicPlayer), "Init")]
@@ -42,7 +42,7 @@ namespace Main
         public static void Prefix(ICinematicData cinematic){
             ConjurerKillCinematicData conjurerKillCinematicData = cinematic as ConjurerKillCinematicData;
 			int otherPosition = conjurerKillCinematicData.otherPosition;
-            ChatUtils.AddMessage($"<color={ModSettings.GetString("Conjurer Msg Color")}>"+ModSettings.GetString("Conjurer Message").Replace("%conjurerRole%",TypesToTypesUtils.GetMentionEncodedText("#conjurer")).Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
+            ChatUtils.AddMessage($"<color={ModSettings.GetString("Conjurer Msg Color")}>"+ModSettings.GetString("Conjurer Message").Replace("%conjurerRole%","[[#25]]").Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
         }
     }
         

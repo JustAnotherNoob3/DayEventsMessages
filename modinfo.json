@@ -5,7 +5,7 @@
     "JAN"
   ],
   "Description": "Adds a message to chat when a day killing occurs",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "RequiredMods": [],
   "Settings": {
     "TextInputSettings": [
