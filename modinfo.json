@@ -5,7 +5,7 @@
     "JAN"
   ],
   "Description": "Adds a message to chat when a day killing occurs",
-  "Version": "1.0.1",
+  "Version": "1.1.0",
   "RequiredMods": [],
   "Settings": {
     "TextInputSettings": [
@@ -32,25 +32,48 @@
         "Regex": "[0-9A-Za-z]",
         "CharacterLimit": 100,
         "AvailableInGame": false
+      },
+      {
+        "Name": "Reminder Message",
+        "Description": "The reminder message. No variables.",
+        "DefaultValue": "Remember to use your ability!",
+        "Regex": "[0-9A-Za-z]",
+        "CharacterLimit": 100,
+        "AvailableInGame": false
       }
     ],
     "ColorPickerSettings": [
       {
         "Name": "Deputy Msg Color",
         "Description": "Color of the deputy message.",
-        "DefaultValue": "#1133FF",
+        "DefaultValue": "#5588FF",
         "AvailableInGame": true
       },
       {
         "Name": "Prosecutor Msg Color",
         "Description": "Color of the prosecutor message.",
-        "DefaultValue": "#1133FF",
+        "DefaultValue": "#5588FF",
         "AvailableInGame": true
       },
       {
         "Name": "Conjurer Msg Color",
         "Description": "Color of the conjurer message.",
         "DefaultValue": "#FF0000",
+        "AvailableInGame": false
+      },
+      {
+        "Name": "Reminder Msg Color",
+        "Description": "Color of the reminder message.",
+        "DefaultValue": "#FF0000",
+        "AvailableInGame": false
+      }
+    ],
+    "CheckboxSettings": 
+    [
+      {
+        "Name": "Show Reminder Message",
+        "Description": "Will make a message at the start of the voting phase if you didn't select a target yet as Jailor, Coroner or Pirate.",
+        "DefaultValue": true,
         "AvailableInGame": false
       }
     ]

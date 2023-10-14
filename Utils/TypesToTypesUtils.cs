@@ -7,25 +7,7 @@ using UnityEngine;
 using System;
 namespace Utils{
     static public class TypesToTypesUtils{
-        static public string GetMentionEncodedText(string humanText){
-            if(humanText[0] != '@' && humanText[0] != '#' && humanText[0] != ':'){
-                Console.WriteLine("Error: " + humanText + " does not start with a valid character. Always start with #, : or @");
-                return "Error: " + humanText + " does not start with a valid character";
-            }
-            MentionPanel mentionPanel = (MentionPanel)GameObject.FindObjectOfType(typeof(MentionPanel));
-            if(mentionPanel == null)
-            {
-                return "Error! MentionPanel not found";
-            }
-           foreach (MentionInfo mentionInfo in (List<MentionInfo>)mentionPanel.mentionsProvider.GetType().GetField("MentionInfos", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(mentionPanel.mentionsProvider))
-			{
-				if(mentionInfo.humanText == humanText)
-				{
-                    return mentionInfo.encodedText;
-				}
-            }
-           return "Error: " + humanText + " not found";
-        }
+        
 
 
         static public ClientFeedbackType StringToFeedbackType(string str){

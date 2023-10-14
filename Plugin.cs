@@ -1,9 +1,18 @@
-﻿using SML;
+﻿using System;
+using System.Xml.Serialization;
+using SML;
 using UnityEngine;
 using HarmonyLib;
 using Cinematics.Players;
 using Server.Shared.Cinematics.Data;
 using Utils;
+using Game.Simulation;
+using Server.Shared.Info;
+using Server.Shared.State;
+using Game.Interface;
+using Game.Chat;
+using Server.Shared.Messages;
+using Server.Shared.State.Chat;
 
 namespace Main
 {
@@ -43,6 +52,44 @@ namespace Main
             ConjurerKillCinematicData conjurerKillCinematicData = cinematic as ConjurerKillCinematicData;
 			int otherPosition = conjurerKillCinematicData.otherPosition;
             ChatUtils.AddMessage($"<color={ModSettings.GetString("Conjurer Msg Color")}>"+ModSettings.GetString("Conjurer Message").Replace("%conjurerRole%","[[#25]]").Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
+        }
+    }
+    [HarmonyPatch(typeof(PooledChatController), "AddMessage")]
+    class ThisIsDumb{
+        public static void Prefix(ChatLogMessage message){
+            if(message.chatLogEntry.type != ChatType.TARGET_SELECTION) return;
+            if(((ChatLogTargetSelectionFeedbackEntry)message.chatLogEntry).menuChoiceType == MenuChoiceType.SpecialAbility) ReminderMessage.reminded = true;
+        }
+    }
+    [HarmonyPatch(typeof(GameSimulation), "HandleOnGameInfoChanged")]
+    class ReminderMessage{
+        public static bool reminded = false;
+        [HarmonyPostfix]
+        public static void AddMessage(GameSimulation __instance, GameInfo gameInfo){
+            
+            if(!ModSettings.GetBool("Show Reminder Message", "JAN.dayeventmessages")) return;
+            if(gameInfo.gamePhase != GamePhase.PLAY)return;
+            if(!Pepper.AmIAlive()) return;
+            PlayPhase playPhase = __instance.playPhaseState.Get().playPhase;
+            if(playPhase == PlayPhase.NIGHT_WRAP_UP || playPhase == PlayPhase.FIRST_DAY) {
+                reminded = false;
+                return;
+            }
+            if(reminded) return;
+            Role myRole = Pepper.GetMyRole();
+            if(myRole == Role.JAILOR || myRole == Role.PIRATE){
+                if(playPhase == PlayPhase.FIRST_DISCUSSION || playPhase == PlayPhase.VOTING){
+                    ChatUtils.AddFeedbackMsg($"<color={ModSettings.GetString("Reminder Msg Color")}>"+ModSettings.GetString("Reminder Message")+"</color>", feedbackMessageType: "warning");
+                    reminded = true;
+               }
+            } else if(myRole == Role.CORONER){
+                if(playPhase == PlayPhase.VOTING){
+                    ChatUtils.AddFeedbackMsg($"<color={ModSettings.GetString("Reminder Msg Color")}>"+ModSettings.GetString("Reminder Message")+"</color>", feedbackMessageType: "warning");
+                    reminded = true;
+                }
+            }
+            
+             
         }
     }
         
