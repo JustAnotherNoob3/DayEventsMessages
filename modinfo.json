@@ -4,8 +4,8 @@
   "Authors": [
     "JAN"
   ],
-  "Description": "Adds a message to chat when a day killing occurs",
-  "Version": "1.1.0",
+  "Description": "Adds a message to chat when a day killing occurs and has a built-in reminder system so that you don't forget to use your day ability.",
+  "Version": "1.1.1",
   "RequiredMods": [],
   "Settings": {
     "TextInputSettings": [

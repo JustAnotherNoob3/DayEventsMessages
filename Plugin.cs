@@ -50,7 +50,8 @@ namespace Main
     class ConjurerKillCinematicPlayer_Init_Patch{
         public static void Prefix(ICinematicData cinematic){
             ConjurerKillCinematicData conjurerKillCinematicData = cinematic as ConjurerKillCinematicData;
-			int otherPosition = conjurerKillCinematicData.otherPosition;
+			if(!conjurerKillCinematicData.didKill) return;
+            int otherPosition = conjurerKillCinematicData.otherPosition;
             ChatUtils.AddMessage($"<color={ModSettings.GetString("Conjurer Msg Color")}>"+ModSettings.GetString("Conjurer Message").Replace("%conjurerRole%","[[#25]]").Replace("%target%", "[[@"+(otherPosition + 1)+"]]")+"</color>", "", false);
         }
     }
